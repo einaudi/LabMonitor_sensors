@@ -55,7 +55,8 @@ void IRAM_ATTR TimerHandler()
 // ISRs
 void on3s() {
     // updateFlagToTrue();
-    ESP.wdtFeed();
+    wdtFlagToTrue();
+    // ESP.wdtFeed();
 }
 
 void on60s() {
@@ -80,6 +81,7 @@ void init_timer()
 //
 
 bool flag = true;
+bool wdtFlag = false;
 
 void blink(int n) {
     pinMode(LED_BUILTIN, OUTPUT);
@@ -101,4 +103,16 @@ void updateFlagToTrue() {
 
 void updateFlagToFalse() {
     flag = false;
+}
+
+bool wdtFlagStatus() {
+    return wdtFlag;
+}
+
+void wdtFlagToTrue() {
+    wdtFlag = true;
+}
+
+void wdtFlagToFalse() {
+    wdtFlag = false;
 }

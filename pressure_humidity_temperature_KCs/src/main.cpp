@@ -39,6 +39,11 @@ void loop() {
     resetCounter++;
   }
 
+  if(wdtFlagStatus()) {
+    ESP.wdtFeed();
+    wdtFlagToFalse();
+  }
+
   if(resetCounter >= 720) {
     ESP.restart();
   }

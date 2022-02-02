@@ -20,6 +20,10 @@ bool updateFlag();
 void updateFlagToTrue();
 void updateFlagToFalse();
 
+bool wdtFlagStatus();
+void wdtFlagToTrue();
+void wdtFlagToFalse();
+
 void blink(int n);
 
 #endif // REQUESTS_H
